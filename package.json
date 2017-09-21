@@ -1,0 +1,42 @@
+{
+  "name": "backpressure-queue",
+  "version": "1.0.0",
+  "description": "Pipe nodejs streams into an async.queue for parallelisation, get backpressure when the queue is full.",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "prepublishOnly": "tsc",
+    "test": "ts-node test/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/r-k-b/backpressure-queue.git"
+  },
+  "author": "Robert K. Bell <robert.k.bell@gmail.com>",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/r-k-b/backpressure-queue/issues"
+  },
+  "engines": {
+    "node": ">=8.5.0"
+  },
+  "homepage": "https://github.com/r-k-b/backpressure-queue#readme",
+  "devDependencies": {
+    "@types/async": "2.0.42",
+    "@types/node": "8.0.28",
+    "@types/tape": "4.2.30",
+    "prettier": "1.7.0",
+    "tape": "4.8.0",
+    "ts-node": "3.3.0",
+    "typescript": "2.5.2"
+  },
+  "prettier": {
+    "bracketSpacing": false,
+    "singleQuote": true,
+    "semi": false,
+    "trailingComma": "all"
+  },
+  "dependencies": {
+    "async": "2.5.0"
+  }
+}
