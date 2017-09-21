@@ -1,6 +1,6 @@
 {
   "name": "backpressure-queue",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Pipe nodejs streams into an async.queue for parallelisation, get backpressure when the queue is full.",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
