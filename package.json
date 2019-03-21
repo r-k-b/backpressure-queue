@@ -28,7 +28,7 @@
     "prettier": "1.7.0",
     "tape": "4.8.0",
     "ts-node": "3.3.0",
-    "typescript": "2.5.2"
+    "typescript": "3.3.4000"
   },
   "prettier": {
     "bracketSpacing": false,
