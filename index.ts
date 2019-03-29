@@ -40,7 +40,6 @@ export function writableQueue(opts: WritableQueueOpts) {
     write,
     // typescript error; refer <https://github.com/DefinitelyTyped/DefinitelyTyped/issues/19708>
     // workaround: <https://github.com/r-k-b/DefinitelyTyped/compare/2673835592c232aa26db99b5f4d147b165b036ba...10b661ed6c987a9eebbdf9629e5a92027f42493f>
-    // todo: stop having to edit `node_modules/@types/node/index.d.ts:5082`
     final: onFinalWritable,
   }
 
@@ -60,11 +59,11 @@ export function writableQueue(opts: WritableQueueOpts) {
     }
   }
 
-  async function write(
+  function write(
     chunk: any,
     encoding: string,
-    callback: (errorOrNull: Error | null) => {},
-  ) {
+    callback: (errorOrNull: Error | null) => void,
+  ): void {
     try {
       writerCallback = callback
       q.push(chunk)
@@ -84,9 +83,7 @@ export function writableQueue(opts: WritableQueueOpts) {
     }
   }
 
-  async function onFinalWritable(
-    callback: (error: Error | null) => Promise<void>,
-  ) {
+  function onFinalWritable(callback: (error: Error | null) => void): void {
     if (q.idle()) {
       // no need to wait for drain event
       callback(null)
