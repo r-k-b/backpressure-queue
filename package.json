@@ -27,7 +27,7 @@
     "@types/tape": "4.2.33",
     "prettier": "1.19.1",
     "tape": "4.12.1",
-    "ts-node": "8.5.2",
+    "ts-node": "8.5.4",
     "typescript": "3.7.4"
   },
   "prettier": {
