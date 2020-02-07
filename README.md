@@ -1,5 +1,7 @@
 # backpressure-queue
 
+![Node.js CI](https://github.com/r-k-b/backpressure-queue/workflows/Node.js%20CI/badge.svg?branch=master)
+
 Returns a Writable ObjectMode Stream that allows a certain number of
 simultaneous promises, and triggers stream backpressure when the
 concurrency limit is hit.
