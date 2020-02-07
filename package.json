@@ -24,7 +24,7 @@
   "devDependencies": {
     "@types/async": "2.4.2",
     "@types/node": "12.12.21",
-    "@types/tape": "4.2.33",
+    "@types/tape": "4.2.34",
     "prettier": "1.19.1",
     "tape": "4.13.0",
     "ts-node": "8.6.2",
