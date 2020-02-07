@@ -206,15 +206,20 @@ test('slow 1-buffer 2-wide 6-item', t => {
   })
 
   wq.addListener('finish', () => {
-    // how to be more deterministic here? Seems to end up in one of these two states:
-    // '⎀1 ⎀2 ⎀3 ⎀4 ↑1 ↑2 ⏲25 ↓1 ↓2 ⎀5 ↑3 ⎀6 ↑4 ⏲75 ↓3 ␙ ↑5 ↓4 ↑6 ⏲125 ↓5 ↓6'
-    // '⎀1 ⎀2 ⎀3 ⎀4 ↑1 ↑2 ⏲25 ↓1 ↓2 ⎀5 ↑3 ⎀6 ↑4 ⏲75 ↓3 ↓4 ␙ ↑5 ↑6 ⏲125 ↓5 ↓6'
+    // how to be more deterministic here? Seems to end up in one of these two states in node 8.x, 10.x:
+    const sample1 =
+      '⎀1 ⎀2 ⎀3 ⎀4 ↑1 ↑2 ⏲25 ↓1 ↓2 ⎀5 ↑3 ⎀6 ↑4 ⏲75 ↓3 ␙ ↑5 ↓4 ↑6 ⏲125 ↓5 ↓6'
+    const sample2 =
+      '⎀1 ⎀2 ⎀3 ⎀4 ↑1 ↑2 ⏲25 ↓1 ↓2 ⎀5 ↑3 ⎀6 ↑4 ⏲75 ↓3 ↓4 ␙ ↑5 ↑6 ⏲125 ↓5 ↓6'
 
-    const re = /^⎀1 ⎀2 ⎀3 ⎀4 ↑1 ↑2 ⏲25 ↓1 ↓2 ⎀5 ↑3 ⎀6 ↑4 ⏲75 ↓3 (↓4 ␙ ↑5|␙ ↑5 ↓4) ↑6 ⏲125 ↓5 ↓6$/
+    // node 12.x has this behaviour:
+    const sample3 =
+      '⎀1 ⎀2 ⎀3 ⎀4 ↑1 ↑2 ⏲25 ↓1 ⎀5 ↑3 ↓2 ⎀6 ↑4 ⏲75 ↓3 ␙ ↑5 ↓4 ↑6 ⏲125 ↓5 ↓6'
+
     const joined = a.join(' ')
     t.true(
-      re.test(joined),
-      'result matches either expected outcome (non-deterministic)',
+      [sample1, sample2, sample3].some(sample => joined === sample),
+      'result matches any expected outcome (non-deterministic?)',
     )
   })
 
