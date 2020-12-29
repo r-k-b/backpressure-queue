@@ -1,0 +1,19 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "19:00"
+  open-pull-requests-limit: 10
+  reviewers:
+  - r-k-b
+  ignore:
+  - dependency-name: async
+    versions:
+    - ">= 3.a"
+    - "< 4"
+  - dependency-name: "@types/async"
+    versions:
+    - ">= 3.a"
+    - "< 4"
