@@ -25,7 +25,7 @@ Shorthand for the `a` arrays:
 
 */
 
-test('16-buffer 1-wide 1-item', t => {
+test('16-buffer 1-wide 1-item', (t) => {
   t.plan(1)
 
   let a: string[] = []
@@ -44,7 +44,7 @@ test('16-buffer 1-wide 1-item', t => {
   source.pipe(wq)
 })
 
-test('16-buffer 1-wide 6-item', t => {
+test('16-buffer 1-wide 6-item', (t) => {
   t.plan(1)
 
   let a: string[] = []
@@ -63,7 +63,7 @@ test('16-buffer 1-wide 6-item', t => {
   source.pipe(wq)
 })
 
-test('slow 16-buffer 1-wide 1-item', t => {
+test('slow 16-buffer 1-wide 1-item', (t) => {
   t.plan(1)
 
   let a: string[] = []
@@ -82,7 +82,7 @@ test('slow 16-buffer 1-wide 1-item', t => {
   source.pipe(wq)
 })
 
-test('slow 16-buffer 1-wide 2-item', t => {
+test('slow 16-buffer 1-wide 2-item', (t) => {
   t.plan(1)
 
   let a: string[] = []
@@ -101,7 +101,7 @@ test('slow 16-buffer 1-wide 2-item', t => {
   source.pipe(wq)
 })
 
-test('slow 16-buffer 2-wide 2-item', t => {
+test('slow 16-buffer 2-wide 2-item', (t) => {
   t.plan(1)
 
   let a: string[] = []
@@ -122,7 +122,7 @@ test('slow 16-buffer 2-wide 2-item', t => {
   source.pipe(wq)
 })
 
-test('slow 1-buffer 1-wide 6-item', t => {
+test('slow 1-buffer 1-wide 6-item', (t) => {
   t.plan(1)
 
   let a: string[] = []
@@ -155,7 +155,7 @@ test('slow 1-buffer 1-wide 6-item', t => {
   source.pipe(wq)
 })
 
-test('delayed slow 1-buffer 1-wide 6-item', t => {
+test('delayed slow 1-buffer 1-wide 6-item', (t) => {
   t.plan(1)
 
   let a: string[] = []
@@ -195,7 +195,7 @@ test('delayed slow 1-buffer 1-wide 6-item', t => {
   source.pipe(wq)
 })
 
-test('slow 1-buffer 2-wide 6-item', t => {
+test('slow 1-buffer 2-wide 6-item', (t) => {
   t.plan(1)
 
   let a: string[] = []
@@ -218,7 +218,7 @@ test('slow 1-buffer 2-wide 6-item', t => {
 
     const joined = a.join(' ')
     t.true(
-      [sample1, sample2, sample3].some(sample => joined === sample),
+      [sample1, sample2, sample3].some((sample) => joined === sample),
       'result matches any expected outcome (non-deterministic?)',
     )
   })
@@ -234,7 +234,7 @@ test('slow 1-buffer 2-wide 6-item', t => {
   source.pipe(wq)
 })
 
-test('slow 16-buffer 10-wide 6-item', t => {
+test('slow 16-buffer 10-wide 6-item', (t) => {
   t.plan(1)
 
   let a: string[] = []
@@ -260,7 +260,7 @@ test('slow 16-buffer 10-wide 6-item', t => {
   source.pipe(wq)
 })
 
-test('slow sequential 2-item', t => {
+test('slow sequential 2-item', (t) => {
   t.plan(1)
 
   let a: string[] = []
@@ -282,7 +282,7 @@ test('slow sequential 2-item', t => {
   source.pipe(wq)
 })
 
-test('out-of-order 1-buffer 6-wide 6-item', t => {
+test('out-of-order 1-buffer 6-wide 6-item', (t) => {
   t.plan(1)
 
   let a: string[] = []
@@ -315,7 +315,7 @@ test('out-of-order 1-buffer 6-wide 6-item', t => {
   source.pipe(wq)
 })
 
-test('out-of-order 16-buffer 6-wide 6-item', t => {
+test('out-of-order 16-buffer 6-wide 6-item', (t) => {
   t.plan(1)
 
   let a: string[] = []
