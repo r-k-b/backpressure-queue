@@ -34,7 +34,7 @@ export function writableQueue(opts: WritableQueueOpts) {
   const limitConcurrent = opts.limitConcurrent || defaultConcurrencyLimit
   const q = async.queue(opts.doWork, limitConcurrent)
 
-  const wopts: WritableOptions = {
+  const wOpts: WritableOptions = {
     objectMode: true,
     highWaterMark: 1,
     write,
@@ -46,7 +46,7 @@ export function writableQueue(opts: WritableQueueOpts) {
   let expectedDesaturations = 0
   let writerCallback = (errorOrNull: Error | null) => {}
 
-  q.unsaturated = function() {
+  q.unsaturated = function () {
     // this probably does bad things if multiple Writables overwrite the func
     // we're safe, since a single Writable is strictly sequential
     try {
@@ -95,5 +95,5 @@ export function writableQueue(opts: WritableQueueOpts) {
     }
   }
 
-  return new Writable(wopts)
+  return new Writable(wOpts)
 }
