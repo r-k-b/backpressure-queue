@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectTasksOptions" suppressed-tasks="Babel">
     <TaskOptions isEnabled="true">
-      <option name="arguments" value="--write [other opts] $FilePath$" />
+      <option name="arguments" value="--write $FilePath$" />
       <option name="checkSyntaxErrors" value="true" />
       <option name="description" />
       <option name="exitCodeBehavior" value="ERROR" />
@@ -14,11 +14,15 @@
         <array />
       </option>
       <option name="outputFromStdout" value="false" />
-      <option name="program" value="$PROJECT_DIR$/node_modules/.bin/prettier.cmd" />
+      <option name="program" value="$PROJECT_DIR$/node_modules/.bin/prettier" />
+      <option name="runOnExternalChanges" value="true" />
       <option name="scopeName" value="Current File" />
       <option name="trackOnlyRoot" value="false" />
       <option name="workingDir" value="$ProjectFileDir$" />
       <envs />
     </TaskOptions>
+    <enabled-global>
+      <option value="nixfmt" />
+    </enabled-global>
   </component>
 </project>
