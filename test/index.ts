@@ -173,7 +173,7 @@ test('delayed slow 1-buffer 1-wide 6-item', (t) => {
         '⎀3r30ms ↑3w30ms ↓3w30ms ' +
         '⎀4r40ms ↑4w40ms ↓4w40ms ' +
         '⎀5r50ms ↑5w50ms ↓5w50ms ' +
-        '⎀6r60ms ␙ ↑6w60ms ↓6w60ms',
+        '⎀6r60ms ↑6w60ms ␙ ↓6w60ms',
     )
   })
 

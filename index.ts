@@ -46,7 +46,7 @@ export function writableQueue(opts: WritableQueueOpts) {
   let expectedDesaturations = 0
   let writerCallback = (errorOrNull: Error | null) => {}
 
-  q.unsaturated = function () {
+  q.unsaturated(function () {
     // this probably does bad things if multiple Writables overwrite the func
     // we're safe, since a single Writable is strictly sequential
     try {
@@ -57,7 +57,7 @@ export function writableQueue(opts: WritableQueueOpts) {
     } catch (error) {
       // we're doing something wrong here
     }
-  }
+  })
 
   function write(
     chunk: any,
@@ -79,7 +79,7 @@ export function writableQueue(opts: WritableQueueOpts) {
         return
       }
     } catch (error) {
-      callback(error)
+      callback(isError(error) ? error : null)
     }
   }
 
@@ -90,10 +90,24 @@ export function writableQueue(opts: WritableQueueOpts) {
       return
     }
 
-    q.drain = () => {
+    q.drain(() => {
       callback(null)
-    }
+    })
   }
 
   return new Writable(wOpts)
 }
+
+function isError(e: unknown): e is Error {
+  if (e == null) return false
+  if (typeof e != 'object') return false
+
+  if (!hasKeys(['name', 'message'])(e)) return false
+
+  return typeof e.name == 'string' && typeof e.message == 'string'
+}
+
+const hasKeys =
+  <K extends string>(ks: K[]) =>
+  (o: object): o is Record<K, unknown> =>
+    ks.every((k) => k in o)
