@@ -135,7 +135,7 @@ test('slow 1-buffer 1-wide 6-item', (t) => {
   wq.addListener('finish', () => {
     t.equal(
       a.join(' '),
-      '⎀1 ⎀2 ⎀3 ↑1 ⏲25 ↓1 ⎀4 ↑2 ⏲75 ↓2 ⎀5 ↑3 ⏲125 ↓3 ⎀6 ↑4 ⏲175 ↓4 ␙ ↑5 ⏲225 ↓5 ↑6 ⏲275 ↓6',
+      '⎀1 ⎀2 ⎀3 ↑1 ⏲25 ↓1 ↑2 ⎀4 ⏲75 ↓2 ↑3 ⎀5 ⏲125 ↓3 ↑4 ⎀6 ⏲175 ↓4 ↑5 ␙ ⏲225 ↓5 ↑6 ⏲275 ↓6',
     )
   })
 
@@ -216,11 +216,17 @@ test('slow 1-buffer 2-wide 6-item', (t) => {
     const sample3 =
       '⎀1 ⎀2 ⎀3 ⎀4 ↑1 ↑2 ⏲25 ↓1 ⎀5 ↑3 ↓2 ⎀6 ↑4 ⏲75 ↓3 ␙ ↑5 ↓4 ↑6 ⏲125 ↓5 ↓6'
 
+    // node 14
+    const sample4 =
+      '⎀1 ⎀2 ⎀3 ⎀4 ↑1 ↑2 ⏲25 ↓1 ↑3 ⎀5 ↓2 ↑4 ⎀6 ⏲75 ↓3 ↑5 ␙ ↓4 ↑6 ⏲125 ↓5 ↓6'
+
     const joined = a.join(' ')
-    t.true(
-      [sample1, sample2, sample3].some((sample) => joined === sample),
-      'result matches any expected outcome (non-deterministic?)',
-    )
+    let expectedOneOf = [sample1, sample2, sample3, sample4]
+    let anyMatch = expectedOneOf.some((sample) => joined === sample)
+    t.true(anyMatch, 'result matches any expected outcome (non-deterministic?)')
+    if (!anyMatch) {
+      console.warn({expectedOneOf, got: joined})
+    }
   })
 
   const source = debugReadableFromArray(a, ['1', '2', '3', '4', '5', '6'], {
