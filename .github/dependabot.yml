@@ -8,12 +8,3 @@ updates:
   open-pull-requests-limit: 10
   reviewers:
   - r-k-b
-  ignore:
-  - dependency-name: async
-    versions:
-    - ">= 3.a"
-    - "< 4"
-  - dependency-name: "@types/async"
-    versions:
-    - ">= 3.a"
-    - "< 4"
