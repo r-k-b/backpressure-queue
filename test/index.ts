@@ -404,7 +404,7 @@ function debugReadableFromArray(
       }
       mutableArray.push(`⎀${next.value}`)
       pushResult = this.push(next.value)
-    } while (pushResult !== false)
+    } while (pushResult)
   }
 
   return new Readable({
@@ -453,7 +453,7 @@ function debugDelayableReadableFromArray(
           pushResult = this.push(next.value)
         })
       }
-    } while (pushResult !== false)
+    } while (pushResult)
     simultaneousReads--
   }
 
