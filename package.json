@@ -37,6 +37,6 @@
     "trailingComma": "all"
   },
   "dependencies": {
-    "async": "3.2.5"
+    "async": "3.2.6"
   }
 }
