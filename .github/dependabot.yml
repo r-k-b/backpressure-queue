@@ -6,13 +6,9 @@ updates:
     interval: weekly
     day: "friday"
   open-pull-requests-limit: 10
-  reviewers:
-  - r-k-b
 - package-ecosystem: "github-actions"
   directory: "/"
   schedule:
     interval: "daily"
     timezone: Australia/Sydney
   open-pull-requests-limit: 3
-  reviewers:
-    - r-k-b
