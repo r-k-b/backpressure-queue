@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/r-k-b/backpressure-queue#readme",
   "devDependencies": {
-    "@types/async": "3.2.24",
+    "@types/async": "3.2.25",
     "@types/node": "24.1.0",
     "@types/tape": "5.8.1",
     "prettier": "3.6.2",
