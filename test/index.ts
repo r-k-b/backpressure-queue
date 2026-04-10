@@ -2,7 +2,7 @@ process.env.NODE_ENV = 'test'
 
 import {delay, generatorFromArray} from '../lib/utils'
 import {Readable} from 'stream'
-import * as test from 'tape'
+import test from 'tape'
 import {writableQueue} from '../index'
 
 /*
