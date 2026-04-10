@@ -7,7 +7,6 @@ updates:
   schedule:
     interval: weekly
     day: "friday"
-  open-pull-requests-limit: 10
 - package-ecosystem: "github-actions"
   cooldown:
     default-days: 10
@@ -15,4 +14,10 @@ updates:
   schedule:
     interval: "daily"
     timezone: Australia/Sydney
-  open-pull-requests-limit: 3
+- package-ecosystem: "nix"
+  cooldown:
+    default-days: 10
+  directory: "/"
+  schedule:
+    interval: "weekly"
+    timezone: Australia/Sydney
