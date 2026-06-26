@@ -25,7 +25,7 @@
     "@types/async": "3.2.25",
     "@types/node": "25.9.3",
     "@types/tape": "5.8.1",
-    "prettier": "3.8.3",
+    "prettier": "3.8.4",
     "tape": "5.10.1",
     "ts-node": "10.9.2",
     "typescript": "6.0.3"
